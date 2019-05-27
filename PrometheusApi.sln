@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28822.285
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrometheusApi", "PrometheusApi\PrometheusApi.csproj", "{1A7FA674-F497-45BF-9984-3F3639B7F839}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrometheusData", "PrometheusData\PrometheusData.csproj", "{D9F6F6D1-BA04-458B-ACFA-DF3D5348BD8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrometheusApi2", "PrometheusApi2\PrometheusApi2.csproj", "{3DEA7664-E2B3-45CD-98EB-D9D5B0325F4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1A7FA674-F497-45BF-9984-3F3639B7F839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A7FA674-F497-45BF-9984-3F3639B7F839}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A7FA674-F497-45BF-9984-3F3639B7F839}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A7FA674-F497-45BF-9984-3F3639B7F839}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9F6F6D1-BA04-458B-ACFA-DF3D5348BD8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9F6F6D1-BA04-458B-ACFA-DF3D5348BD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9F6F6D1-BA04-458B-ACFA-DF3D5348BD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9F6F6D1-BA04-458B-ACFA-DF3D5348BD8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DEA7664-E2B3-45CD-98EB-D9D5B0325F4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DEA7664-E2B3-45CD-98EB-D9D5B0325F4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DEA7664-E2B3-45CD-98EB-D9D5B0325F4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DEA7664-E2B3-45CD-98EB-D9D5B0325F4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

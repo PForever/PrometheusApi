@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using PrometheusData;
 
-namespace PrometheusApi
+namespace PrometheusApi2
 {
     public class Startup
     {
@@ -27,17 +27,14 @@ namespace PrometheusApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-
+            services.AddControllers().AddNewtonsoftJson();
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
-
-            //services.AddDbContext<PrometeusContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnectionString")));
-
-            services.AddTransient<IPrometeusContext>(sp => new PrometeusContext(connectionString));
+            //var t = new PrometeusContext(connectionString);
+            services.AddDbContext<PrometeusContext>(options => options.UseSqlite(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IPrometeusContext context)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -45,12 +42,20 @@ namespace PrometheusApi
             }
             else
             {
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseHttpsRedirection();
-            app.UseMvc();
 
-            context.EnsureCreated();
+            app.UseHttpsRedirection();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }
